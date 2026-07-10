@@ -1,0 +1,17 @@
+(defun c:joinlines (/ ss i obj)
+  (princ "\nВыберите линии для соединения: ")
+  (setq ss (ssget '((0 . "LINE"))))
+  (if ss
+    (progn
+      (setq i 0)
+      (while (< i (sslength ss))
+        (setq obj (ssname ss i))
+        (command "._join" obj "")
+        (setq i (1+ i))
+      )
+      (princ "\nСоединение выполнено.")
+    )
+    (princ "\nОбъекты не выбраны.")
+  )
+  (princ)
+)

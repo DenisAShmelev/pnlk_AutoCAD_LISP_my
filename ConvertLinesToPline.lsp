@@ -1,0 +1,15 @@
+(defun c:ConvertLinesToPline (/ ss i ent)
+  (princ "\nВыделите отрезки для преобразования в полилинии...")
+  (setq ss (ssget '((0 . "LINE"))))
+  (if ss
+    (progn
+      (repeat (setq i (sslength ss))
+        (setq ent (ssname ss (setq i (1- i))))
+        (command "_PEDIT" ent "_Y" "")
+      )
+      (princ "\nГотово: выбранные отрезки преобразованы в полилинии.")
+    )
+    (princ "\nНе выбрано ни одного отрезка.")
+  )
+  (princ)
+)

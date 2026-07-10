@@ -1,0 +1,1 @@
+(defun c:ÏÎÂÂ () (setq ss (ssget)) (command "_rotate" ss "" pause "_r" (getvar "lastpoint") pause));ÏÎÂÂ
